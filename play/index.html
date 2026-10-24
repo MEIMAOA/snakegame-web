@@ -1,45 +1,97 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Tuanjie WebGL Player | SnakeGame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SnakeGame · 在线试玩 | SnakeGame</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <div id="tuanjie-container" class="tuanjie-desktop">
       <canvas id="tuanjie-canvas" width=1280 height=720 tabindex="-1"></canvas>
+
+      <!-- ===================== 定制加载界面 ===================== -->
       <div id="tuanjie-loading-bar">
-        <div id="tuanjie-logo"></div>
-        <div id="tuanjie-progress-bar-empty">
-          <div id="tuanjie-progress-bar-full"></div>
+        <div class="snake-loader">
+          <div class="snake-logo" aria-hidden="true">
+            <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="72" cy="22" r="12" fill="#FF8C00"/>
+              <circle cx="68" cy="19" r="2.6" fill="#161616"/>
+              <circle cx="77" cy="19" r="2.6" fill="#161616"/>
+              <path d="M72 34 Q72 40 66 40 L14 40"
+                    fill="none" stroke="#00B2D2" stroke-width="9" stroke-linecap="round"/>
+              <circle cx="14" cy="40" r="6.5" fill="#00B2D2"/>
+              <circle cx="30" cy="60" r="6.5" fill="#2FA84F"/>
+              <circle cx="50" cy="60" r="6.5" fill="#FFC40A"/>
+              <circle cx="70" cy="60" r="6.5" fill="#E81123"/>
+            </svg>
+          </div>
+
+          <div class="snake-word">SNAKEGAME</div>
+          <div class="snake-sub">贪吃蛇 · 五种模式 + 明日方舟式 3D 塔防</div>
+
+          <div id="tuanjie-progress-bar-empty">
+            <div id="tuanjie-progress-bar-full"></div>
+          </div>
+          <div class="snake-progress-text">
+            <span id="snake-progress-pct">0</span>%
+            <span class="snake-stage" id="snake-stage">正在下载数据…</span>
+          </div>
+
+          <div class="snake-tip" id="snake-tip">💡 塔防模式中，近战干员可以阻挡敌人前进，让远程干员安全输出。</div>
+
+          <div class="snake-notice">首次加载约 15–20 秒，之后会更快（浏览器缓存）</div>
         </div>
       </div>
+
       <div id="tuanjie-warning"> </div>
+
       <div id="tuanjie-footer">
-        <div id="tuanjie-webgl-logo"></div>
         <div id="tuanjie-fullscreen-button"></div>
-        <div id="tuanjie-build-title">SnakeGame</div>
+        <div id="tuanjie-build-title">SnakeGame v9.1.1</div>
       </div>
     </div>
-	
-	
-    <script>
 
+    <script>
+      // ---------------- 游戏小贴士轮播 ----------------
+      var tips = [
+        "💡 塔防模式中，近战干员可以阻挡敌人前进，让远程干员安全输出。",
+        "💡 淘汰之王里按 F 挑战 600 像素内的对手，决斗获胜可提升等级（最高 10 级）。",
+        "💡 搜打撤模式：靠近黄色容器按 F 搜索，读满后再按 F 领取物资。",
+        "💡 连击窗口只有 3 秒——连续吃食物能让单次得分成倍上涨（封顶 +10）。",
+        "💡 占领模式里站在中央区域内即可推进占领进度，蓝队 AI 是你的队友。",
+        "💡 按住 Ctrl 可以加速冲刺；极速模式的加速窗口更短，要省着用。",
+        "💡 极速模式每 30 秒会下一场「食物雨」，得分倍率随时间不断上涨。",
+        "💡 护盾道具可以抵挡一次致命碰撞，拾取后蛇头会出现蓝色光环。",
+        "💡 淘汰之王的毒圈每 300 秒缩小一次，圈外停留 15 秒就会被淘汰。",
+        "💡 击杀敌人会掉落与它体型相当的食物，全部吃掉就能拿到它的全部分数。"
+      ];
+      var tipIndex = Math.floor(Math.random() * tips.length);
+      var tipEl = document.getElementById("snake-tip");
+      function showNextTip() {
+        tipIndex = (tipIndex + 1) % tips.length;
+        if (tipEl) {
+          tipEl.style.opacity = "0";
+          setTimeout(function () {
+            tipEl.textContent = tips[tipIndex];
+            tipEl.style.opacity = "1";
+          }, 350);
+        }
+      }
+      var tipTimer = setInterval(showNextTip, 4500);
+
+      // ---------------- 引擎加载（与原模板一致，进度回调额外更新百分比与阶段文字）----------------
       var container = document.querySelector("#tuanjie-container");
       var canvas = document.querySelector("#tuanjie-canvas");
       var loadingBar = document.querySelector("#tuanjie-loading-bar");
       var progressBarFull = document.querySelector("#tuanjie-progress-bar-full");
       var fullscreenButton = document.querySelector("#tuanjie-fullscreen-button");
       var warningBanner = document.querySelector("#tuanjie-warning");
+      var progressPct = document.getElementById("snake-progress-pct");
+      var stageEl = document.getElementById("snake-stage");
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
@@ -58,6 +110,13 @@
         updateBannerVisibility();
       }
 
+      function updateStage(progress) {
+        if (!stageEl) return;
+        if (progress < 0.35) stageEl.textContent = "正在下载数据…";
+        else if (progress < 0.98) stageEl.textContent = "正在启动引擎…";
+        else stageEl.textContent = "马上就好…";
+      }
+
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/WebGL.loader.js";
       var config = {
@@ -71,40 +130,14 @@
         showBanner: unityShowBanner,
       };
 
-      // By default Tuanjie keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-
-      // If you would like all file writes inside Unity Application.persistentDataPath
-      // directory to automatically persist so that the contents are remembered when
-      // the user revisits the site the next time, uncomment the following line:
-      // config.autoSyncPersistentDataPath = true;
-      // This autosyncing is currently not the default behavior to avoid regressing
-      // existing user projects that might rely on the earlier manual
-      // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
-      // expected to change.
-
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-
         var meta = document.createElement('meta');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = "tuanjie-mobile";
         canvas.className = "tuanjie-mobile";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-
       } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
         canvas.style.width = "1280px";
         canvas.style.height = "720px";
       }
@@ -116,18 +149,20 @@
       script.onload = () => {
         createTuanjieInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
-              }).then((tuanjieInstance) => {
-                loadingBar.style.display = "none";
-                fullscreenButton.onclick = () => {
-                  tuanjieInstance.SetFullscreen(1);
-                };
-              }).catch((message) => {
-                alert(message);
-              });
-            };
+          if (progressPct) progressPct.textContent = Math.round(progress * 100);
+          updateStage(progress);
+        }).then((tuanjieInstance) => {
+          loadingBar.style.display = "none";
+          if (tipTimer) clearInterval(tipTimer);
+          fullscreenButton.onclick = () => {
+            tuanjieInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
 
       document.body.appendChild(script);
-
     </script>
   </body>
 </html>
