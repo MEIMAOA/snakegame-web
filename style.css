@@ -1,22 +1,20 @@
 /* ============================================================
-   SnakeGame / SnakeLauncherWPF 介绍页
-   设计参考 Microsoft Windows 官网：浅色、Segoe UI、大标题、
-   圆角卡片、蓝色主按钮、充足留白。
+   SnakeGame / SnakeLauncherWPF 介绍页 — 扁平化设计
+   纯色块、零阴影、零模糊、无渐变、直角/极小圆角，
+   靠排版层级与色块区分层次。
    ============================================================ */
 :root{
   --blue:#0067c0;
-  --blue-dark:#005ba1;
-  --blue-soft:#eef4fb;
-  --ink:#1b1b1f;
-  --ink-2:#3b3b41;
-  --muted:#5f6368;
-  --line:#e3e3e3;
+  --blue-dark:#004f95;
+  --blue-soft:#e5eff9;
+  --ink:#111114;
+  --ink-2:#33333a;
+  --muted:#5c5c66;
+  --line:#d9d9de;
   --bg:#ffffff;
-  --bg-alt:#f6f7f9;
-  --card:#ffffff;
-  --radius:10px;
-  --radius-lg:16px;
-  --shadow:0 2px 6px rgba(0,0,0,.06),0 12px 32px rgba(0,0,0,.06);
+  --bg-flat:#f2f3f5;
+  --bg-flat-2:#e9ebee;
+  --radius:2px;
   --font:"Segoe UI Variable Display","Segoe UI","Microsoft YaHei UI","Microsoft YaHei",system-ui,-apple-system,sans-serif;
 }
 *{box-sizing:border-box}
@@ -29,166 +27,161 @@ body{
 img{max-width:100%;display:block}
 a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
-code{background:var(--bg-alt);border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:.9em}
-.wrap{max-width:1500px;margin:0 auto;padding:0 5vw}
+code{background:var(--bg-flat);border:none;padding:1px 5px;font-size:.9em}
+.wrap{max-width:1440px;margin:0 auto;padding:0 5vw}
 .narrow{max-width:900px}
 
-/* ---------------- 导航 ---------------- */
+/* ---------------- 导航（纯色白 + 单线分隔） ---------------- */
 .site-nav{
   position:sticky;top:0;z-index:60;
-  background:rgba(255,255,255,.94);
-  backdrop-filter:saturate(180%) blur(16px);
+  background:#ffffff;
   border-bottom:1px solid var(--line);
 }
-.nav-inner{display:flex;align-items:center;gap:28px;height:64px}
-.logo{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:650;font-size:17px}
+.nav-inner{display:flex;align-items:center;gap:28px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;font-size:17px}
 .logo:hover{text-decoration:none}
 .logo-mark{
-  width:28px;height:28px;border-radius:6px;display:-ms-grid;display:grid;place-items:center;
+  width:28px;height:28px;border-radius:var(--radius);
+  display:grid;place-items:center;
   background:var(--blue);color:#fff;font-weight:700;font-size:16px;
 }
 .nav-links{display:flex;gap:26px;flex:1}
-.nav-links a{color:var(--ink-2);font-size:14.5px}
-.nav-links a:hover{color:var(--blue);text-decoration:none}
+.nav-links a{color:var(--ink-2);font-size:14.5px;padding:6px 0;border-bottom:2px solid transparent}
+.nav-links a:hover{color:var(--blue);border-bottom-color:var(--blue);text-decoration:none}
 .pill{
-  display:inline-block;padding:8px 18px;border-radius:999px;
-  font-size:14px;font-weight:600;border:1px solid transparent;white-space:nowrap;
+  display:inline-block;padding:8px 18px;border-radius:var(--radius);
+  font-size:14px;font-weight:600;
+  background:var(--blue);color:#fff;
 }
-.pill.primary{background:var(--blue);color:#fff}
-.pill.primary:hover{background:var(--blue-dark);text-decoration:none}
+.pill:hover{background:var(--blue-dark);text-decoration:none}
 
-/* ---------------- 按钮 ---------------- */
+/* ---------------- 按钮（纯色块，无阴影） ---------------- */
 .btn{
-  display:inline-block;padding:11px 24px;border-radius:6px;
-  font-size:15px;font-weight:600;transition:background .15s,border-color .15s,color .15s;
+  display:inline-block;padding:11px 24px;
+  border-radius:var(--radius);
+  font-size:15px;font-weight:600;
+  transition:background-color .12s,color .12s;
 }
 .btn:hover{text-decoration:none}
 .btn.primary{background:var(--blue);color:#fff}
 .btn.primary:hover{background:var(--blue-dark)}
-.btn.ghost{border:1px solid var(--ink-2);color:var(--ink)}
+.btn.ghost{background:transparent;border:1px solid var(--ink-2);color:var(--ink)}
 .btn.ghost:hover{border-color:var(--blue);color:var(--blue)}
-.btn.link{padding:11px 8px;color:var(--blue)}
+.btn.link{background:transparent;color:var(--blue);padding:11px 8px}
+.btn.link:hover{text-decoration:underline}
 .btn.small{padding:8px 18px;font-size:14px}
 
-/* ---------------- Hero ---------------- */
-.hero{background:linear-gradient(180deg,var(--bg) 0%,var(--blue-soft) 100%);padding:72px 0 84px}
+/* ---------------- Hero（纯色块，无渐变） ---------------- */
+.hero{background:var(--bg-flat);padding:72px 0 76px;border-bottom:1px solid var(--line)}
 .hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center}
-.eyebrow{font-size:12.5px;letter-spacing:.14em;font-weight:650;color:var(--blue);margin:0 0 14px}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;font-weight:700;color:var(--blue);margin:0 0 14px}
 .hero h1{
-  font-size:clamp(34px,4.2vw,58px);line-height:1.12;letter-spacing:-.02em;
-  font-weight:650;margin:0 0 20px;
+  font-size:clamp(34px,4.2vw,56px);line-height:1.12;letter-spacing:-.02em;
+  font-weight:700;margin:0 0 20px;
 }
-.lead{font-size:clamp(15px,1.15vw,18px);color:var(--muted);margin:0 0 28px;max-width:34em}
+.lead{font-size:clamp(15px,1.15vw,18px);color:var(--ink-2);margin:0 0 28px;max-width:34em}
 .cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .hero-facts{display:flex;gap:44px;list-style:none;padding:0;margin:40px 0 0;flex-wrap:wrap}
 .hero-facts li{display:flex;flex-direction:column}
-.hero-facts b{font-size:28px;line-height:1.1;font-weight:650}
+.hero-facts b{font-size:28px;line-height:1.1;font-weight:700}
 .hero-facts span{font-size:13px;color:var(--muted)}
-.device{
-  margin:0;border-radius:var(--radius-lg);overflow:hidden;
-  border:1px solid var(--line);box-shadow:var(--shadow);background:#fff;
-}
+.device{margin:0;background:#fff;border:1px solid var(--line)}
 .device img{width:100%;height:auto}
 .device-caption{font-size:12.5px;color:var(--muted);margin:12px 2px 0}
 
-/* ---------------- 通用 section ---------------- */
-.section{padding:84px 0}
-.section.gray{background:var(--bg-alt)}
-.section-title{font-size:clamp(26px,2.6vw,38px);font-weight:650;letter-spacing:-.015em;margin:0 0 12px}
+/* ---------------- 区块 ---------------- */
+.section{padding:80px 0}
+.section.gray{background:var(--bg-flat);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section-title{font-size:clamp(26px,2.6vw,36px);font-weight:700;letter-spacing:-.015em;margin:0 0 12px}
 .section-sub{color:var(--muted);margin:0 0 40px;max-width:60em;font-size:15.5px}
 
-/* ---------------- 产品 ---------------- */
-.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
+/* ---------------- 产品卡片（纯色 + 单线） ---------------- */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
 .product{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);
+  background:#fff;border:1px solid var(--line);
   padding:32px;display:flex;flex-direction:column;gap:16px;
-  transition:box-shadow .2s,transform .2s;
 }
-.product:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.product:hover{border-color:var(--blue)}
 .product-head{display:flex;flex-direction:column;gap:4px}
 .product-badge{
-  align-self:flex-start;font-size:12px;font-weight:650;color:var(--blue);
-  background:var(--blue-soft);border-radius:999px;padding:3px 12px;
+  align-self:flex-start;font-size:12px;font-weight:700;color:#fff;
+  background:var(--blue);padding:3px 12px;border-radius:var(--radius);
 }
-.product-badge.alt{color:#7a4d00;background:#fff4e0}
-.product h3{font-size:24px;font-weight:650;margin:8px 0 0}
+.product-badge.alt{background:#7a4d00}
+.product h3{font-size:24px;font-weight:700;margin:8px 0 0}
 .product-ver{font-size:13px;color:var(--muted);margin:0}
 .product-desc{color:var(--ink-2);margin:0;font-size:15px}
 .check-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
-.check-list li{position:relative;padding-left:24px;color:var(--ink-2);font-size:14.5px}
-.check-list li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700}
+.check-list li{position:relative;padding-left:22px;color:var(--ink-2);font-size:14.5px}
+.check-list li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--blue)}
 .product-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
 .repo-link{font-size:13px;color:var(--muted)}
 .repo-link:hover{color:var(--blue)}
 
-/* ---------------- 功能 ---------------- */
-.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0}
-.feature{
-  padding:28px 32px;border-top:1px solid var(--line);border-left:1px solid var(--line);
-  background:transparent;
-}
-.feature:nth-child(3n+1){border-left:none}
+/* ---------------- 功能网格（纯色块分隔） ---------------- */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line)}
+.feature{background:var(--bg-flat);padding:28px 32px}
 .feature-num{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.08em}
-.feature h3{font-size:19px;font-weight:650;margin:10px 0 6px}
-.feature p{margin:0;color:var(--muted);font-size:14.5px}
+.feature h3{font-size:19px;font-weight:700;margin:10px 0 6px}
+.feature p{margin:0;color:var(--ink-2);font-size:14.5px}
 
-/* ---------------- 模式表 ---------------- */
+/* ---------------- 模式列表 ---------------- */
 .mode-table{border-top:1px solid var(--line)}
 .mode-row{
   display:grid;grid-template-columns:56px 260px 1fr;gap:16px;align-items:baseline;
   padding:20px 4px;border-bottom:1px solid var(--line);
 }
 .mode-idx{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
-.mode-row h3{font-size:18px;font-weight:650;margin:0}
-.mode-row p{margin:0;color:var(--muted);font-size:14.5px}
+.mode-row h3{font-size:18px;font-weight:700;margin:0}
+.mode-row p{margin:0;color:var(--ink-2);font-size:14.5px}
 
 /* ---------------- 截图 ---------------- */
-.shot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.shot{margin:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+.shot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.shot{margin:0;border:1px solid var(--line);background:#fff}
 .shot.big{grid-column:1 / -1}
 .shot img{width:100%;height:auto}
 .shot figcaption{padding:10px 14px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
 
 /* ---------------- 在线试玩 ---------------- */
-.play-frame{position:relative;border:1px solid var(--line);border-radius:var(--radius);
-  overflow:hidden;background:#0a0f16;box-shadow:var(--shadow)}
+.play-frame{border:1px solid var(--line);background:#0a0f16}
 .play-frame iframe{display:block;width:100%;height:min(70vh,680px);border:0}
 .play-actions{display:flex;align-items:center;gap:18px;margin-top:18px;flex-wrap:wrap}
 .muted{color:var(--muted);font-size:13.5px}
 
-/* ---------------- 下载 ---------------- */
-.group-title{font-size:18px;font-weight:650;margin:36px 0 14px}
+/* ---------------- 下载卡片（扁平色块） ---------------- */
+.group-title{font-size:18px;font-weight:700;margin:36px 0 14px}
 .download-grid{display:grid;gap:16px}
 .download-grid.four{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .download-grid.three{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .dl-card{
   display:flex;flex-direction:column;gap:6px;padding:20px;
-  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  color:var(--ink);transition:border-color .15s,box-shadow .15s,transform .15s;
+  background:#fff;border:1px solid var(--line);
+  color:var(--ink);transition:background-color .12s,border-color .12s;
 }
-.dl-card:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-2px);text-decoration:none}
-.dl-os{font-size:12px;font-weight:650;color:var(--blue);letter-spacing:.06em;text-transform:uppercase}
-.dl-card b{font-size:17px;font-weight:650}
+.dl-card:hover{background:var(--blue-soft);border-color:var(--blue);text-decoration:none}
+.dl-os{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase}
+.dl-card b{font-size:17px;font-weight:700}
 .dl-file{font-size:12.5px;color:var(--muted);word-break:break-all}
 .dl-size{font-size:12.5px;color:var(--ink-2);font-weight:600}
 
 /* ---------------- 系统要求 ---------------- */
-.req-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-.req{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-.req h3{font-size:17px;font-weight:650;margin:0 0 12px}
+.req-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.req{background:#fff;border:1px solid var(--line);padding:24px}
+.req h3{font-size:17px;font-weight:700;margin:0 0 12px}
 .req ul{margin:0;padding-left:20px;color:var(--ink-2);font-size:14.5px}
 .req li{margin:6px 0}
 
-/* ---------------- 页脚 ---------------- */
-.site-footer{background:var(--bg-alt);border-top:1px solid var(--line);padding:56px 0 32px}
+/* ---------------- 页脚（纯色） ---------------- */
+.site-footer{background:#111114;color:#c9c9d1;padding:56px 0 32px}
 .footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:32px}
-.footer-title{font-size:14px;font-weight:650;margin:0 0 10px}
-.site-footer a{display:block;color:var(--ink-2);font-size:14px;margin:6px 0}
-.site-footer a:hover{color:var(--blue)}
+.footer-title{font-size:14px;font-weight:700;margin:0 0 10px;color:#ffffff}
+.site-footer a{display:block;color:#c9c9d1;font-size:14px;margin:6px 0}
+.site-footer a:hover{color:#ffffff;text-decoration:underline}
+.site-footer .muted{color:#8f8f9c}
 .footer-bottom{
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
-  font-size:12.5px;color:var(--muted);
+  margin-top:40px;padding-top:20px;border-top:1px solid #2a2a31;
+  font-size:12.5px;color:#8f8f9c;
 }
 
 /* ---------------- 响应式 ---------------- */
@@ -205,4 +198,5 @@ code{background:var(--bg-alt);border:1px solid var(--line);border-radius:4px;pad
   .shot-grid{grid-template-columns:1fr}
   .hero-facts{gap:28px}
   .footer-grid{grid-template-columns:1fr}
+  .mode-row{grid-template-columns:36px 1fr}
 }
