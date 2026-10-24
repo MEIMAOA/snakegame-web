@@ -16,7 +16,7 @@
       <a href="#features">特色</a>
       <a href="#modes">模式</a>
       <a href="#shots">截图</a>
-      <a class="play" href="#demo">在线试玩</a>
+      <a class="play" href="#play">在线试玩</a>
       <a href="#download">下载</a>
       <a href="https://github.com/MEIMAOA/SnakeGame" target="_blank" rel="noopener">GitHub</a>
     </nav>
@@ -95,35 +95,7 @@
     <div style="text-align:center;margin-top:14px">
       <a class="btn primary" href="play/index.html" target="_blank" rel="noopener">在新窗口打开 WebGL 版</a>
     </div>
-    <p class="note">WebGL 版为真实引擎构建；下方「轻量版」为纯 HTML5 复刻，加载更快、适合移动端快速体验。</p>
-  </div>
-</section>
-<section id="demo" class="section alt">
-  <div class="wrap">
-    <h2>在线试玩 · 轻量版（HTML5）</h2>
-    <p class="sub">这是用 HTML5 Canvas 复刻的轻量版贪吃蛇，打开即玩、无需安装。<br>完整版（5 模式 + 塔防 + 成就排行）请下载 Windows 或 Android 版本。</p>
-    <div class="demo-box">
-      <div class="demo-hud">
-        <div>得分 <b id="score">0</b></div>
-        <div>最高 <b id="best">0</b></div>
-        <div class="spacer"></div>
-        <button id="pauseBtn" class="mini-btn" type="button">暂停</button>
-        <button id="restartBtn" class="mini-btn" type="button">重开</button>
-      </div>
-      <div class="canvas-wrap">
-        <canvas id="snake" width="600" height="600" aria-label="贪吃蛇在线试玩"></canvas>
-        <div id="overlay" class="overlay">
-          <h3>准备好了吗？</h3>
-          <p>方向键 / WASD 转向 · 空格暂停 · 手机可滑动或点按方向键</p>
-          <button id="startBtn" class="btn primary" type="button">开始游戏</button>
-        </div>
-      </div>
-      <div class="dpad">
-        <button data-dir="up" type="button">▲</button>
-        <div><button data-dir="left" type="button">◀</button><button data-dir="down" type="button">▼</button><button data-dir="right" type="button">▶</button></div>
-      </div>
-    </div>
-    <p class="note">操作：方向键 / WASD / 屏幕滑动 / 下方方向键；吃掉红点得分，撞墙或撞自己结束。此网页试玩为独立实现的轻量复刻，仅用于宣传体验。</p>
+    <p class="note">WebGL 版为真实引擎构建（与 Windows / Android 同一套代码），首次加载约 15–20 秒；加载完成后即可直接游玩。</p>
   </div>
 </section>
 
@@ -188,6 +160,6 @@
   </div>
 </footer>
 
-<script src="demo.js"></script>
+
 </body>
 </html>
