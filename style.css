@@ -40,11 +40,6 @@ code{background:var(--bg-flat);border:none;padding:1px 5px;font-size:.9em}
 .nav-inner{display:flex;align-items:center;gap:28px;height:60px}
 .logo{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;font-size:17px}
 .logo:hover{text-decoration:none}
-.logo-mark{
-  width:28px;height:28px;border-radius:var(--radius);
-  display:grid;place-items:center;
-  background:var(--blue);color:#fff;font-weight:700;font-size:16px;
-}
 .nav-links{display:flex;gap:26px;flex:1}
 .nav-links a{color:var(--ink-2);font-size:14.5px;padding:6px 0;border-bottom:2px solid transparent}
 .nav-links a:hover{color:var(--blue);border-bottom-color:var(--blue);text-decoration:none}
