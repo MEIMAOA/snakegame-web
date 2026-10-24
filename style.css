@@ -138,3 +138,6 @@ code{background:#1d2836;padding:2px 6px;border-radius:6px;font-size:.9em}
 footer{padding:34px 0;color:var(--dim);font-size:13px;text-align:center;background:#080b10}
 footer p{margin:4px 0}
 footer .small a{color:#8fa3bb}
+
+.webgl-frame{position:relative;width:100%;max-width:1180px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#05080d}
+.webgl-frame iframe{display:block;width:100%;height:min(68vh,660px);border:0}
