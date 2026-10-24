@@ -3,163 +3,296 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>贪吃蛇 · SnakeGame v9.1.0 — 多模式贪吃蛇 + 明日方舟式塔防</title>
-<meta name="description" content="SnakeGame：5 种贪吃蛇模式（经典 / 淘汰之王 / 4v4 / 极限 / 搜打撤）+ 明日方舟式 3D 塔防，支持 Windows 与 Android，网页在线试玩。">
+<title>SnakeGame 与 SnakeLauncherWPF — 下载与在线试玩</title>
+<meta name="description" content="SnakeGame：五种贪吃蛇模式 + 明日方舟式 3D 塔防，支持 Windows、Android 与 WebGL 在线试玩。配套 SnakeLauncherWPF 现代化启动器，一键安装与自动更新。">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="nav">
-  <div class="wrap">
-    <a class="brand" href="#top"><span class="dot"></span> 贪吃蛇 <b>SnakeGame</b></a>
-    <nav class="links">
-      <a href="#features">特色</a>
-      <a href="#modes">模式</a>
-      <a href="#shots">截图</a>
-      <a class="play" href="#play">在线试玩</a>
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="SnakeGame 首页">
+      <span class="logo-mark">S</span>
+      <span class="logo-text">SnakeGame</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#products">产品</a>
+      <a href="#features">功能</a>
+      <a href="#modes">游戏模式</a>
+      <a href="#screens">截图</a>
+      <a href="#play">在线试玩</a>
       <a href="#download">下载</a>
-      <a href="https://github.com/MEIMAOA/SnakeGame" target="_blank" rel="noopener">GitHub</a>
+      <a href="#requirements">系统要求</a>
     </nav>
+    <a class="pill primary" href="#download">立即下载</a>
   </div>
 </header>
 
 <section class="hero" id="top">
-  <div class="hero-bg" style="background-image:url('assets/01-start.png')"></div>
-  <div class="wrap hero-inner">
-    <div class="badge">v9.1.0-beta · Windows 64 / 32 · Android</div>
-    <h1>贪吃蛇 <span>SnakeGame</span></h1>
-    <p class="tagline">5 种贪吃蛇玩法 + 明日方舟式 3D 塔防<br>多语言 · 触屏适配 · Win11 风格界面</p>
-    <div class="cta">
-      <a class="btn primary" href="#demo">▶ 在线试玩（浏览器）</a>
-      <a class="btn ghost" href="https://github.com/MEIMAOA/SnakeGame/releases/tag/v9.1.0-beta" target="_blank" rel="noopener">下载 v9.1.0-beta</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">SNAKEGAME 9.1.0 BETA</p>
+      <h1>经典贪吃蛇，<br>进化成一场完整的游戏。</h1>
+      <p class="lead">五种贪吃蛇模式与明日方舟式 3D 塔防，集成在一个应用里。同一套代码，同时提供 Windows、Android 与浏览器在线版本。</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#download">下载游戏</a>
+        <a class="btn ghost" href="#play">在线试玩</a>
+        <a class="btn link" href="https://github.com/MEIMAOA/SnakeGame" target="_blank" rel="noopener">查看源码</a>
+      </div>
+      <ul class="hero-facts">
+        <li><b>5</b><span>贪吃蛇模式</span></li>
+        <li><b>10</b><span>塔防关卡</span></li>
+        <li><b>3</b><span>界面语言</span></li>
+        <li><b>4</b><span>发布平台</span></li>
+      </ul>
     </div>
-    <div class="mini-stats">
-      <div><b>5</b><span>贪吃蛇模式</span></div>
-      <div><b>10</b><span>塔防关卡</span></div>
-      <div><b>3</b><span>语言（中/英/德）</span></div>
-      <div><b>3</b><span>平台（Win64/Win32/Android）</span></div>
-    </div>
-  </div>
-</section>
-
-<main>
-
-<section id="features" class="section">
-  <div class="wrap">
-    <h2>游戏特色</h2>
-    <p class="sub">原版美术风格的 2D 俯视贪吃蛇，加上一套完整的明日方舟式塔防。</p>
-    <div class="grid" id="feature-grid">
-      <div class="card"><div class="ico">🎮</div><h3>5 种模式</h3><p>经典、100 AI 淘汰之王、4v4 团队、极限、搜打撤撤离——每种都有独立规则与排行榜。</p></div>
-      <div class="card"><div class="ico">🏰</div><h3>明日方舟式塔防</h3><p>干员部署、阻挡、技能、费用、10 个关卡，3D 视角作战。</p></div>
-      <div class="card"><div class="ico">🌍</div><h3>多语言</h3><p>简体中文 / English (US) / Deutsch，界面全量翻译，切换即时生效。</p></div>
-      <div class="card"><div class="ico">🏆</div><h3>成就与排行</h3><p>成就系统、累计击杀/胜场/最长存活统计，多种排行分页。</p></div>
-      <div class="card"><div class="ico">📱</div><h3>手机触屏操作</h3><p>虚拟摇杆拖动转向、按住加速、动作键与暂停键，横屏自适应安全区。</p></div>
-      <div class="card"><div class="ico">🎨</div><h3>高度可定制</h3><p>背景样式、蛇头/蛇身颜色、主题色、自定义背景图、分辨率与帧率设置。</p></div>
+    <div class="hero-visual">
+      <figure class="device">
+        <img src="assets/01-start.png" alt="SnakeGame 开始界面">
+      </figure>
+      <p class="device-caption">SnakeGame 9.1.0 beta · Windows 版本实际截图</p>
     </div>
   </div>
 </section>
 
-<section id="modes" class="section alt">
+<section class="section" id="products">
   <div class="wrap">
-    <h2>玩法模式</h2>
-    <div class="modes">
-      <div class="mode"><span class="tag classic">经典</span><h3>Classic</h3><p>吃食物变长，撞墙或撞自己结束，冲击 3000 分。</p></div>
-      <div class="mode"><span class="tag royale">淘汰之王</span><h3>Battle Royale</h3><p>100 条 AI 蛇同场竞技，按 F 挑战附近对手决斗。</p></div>
-      <div class="mode"><span class="tag team">4v4</span><h3>Team</h3><p>团队占点，击杀与占点进度决定胜负。</p></div>
-      <div class="mode"><span class="tag extreme">极限</span><h3>Extreme</h3><p>速度与倍率双重压力，活得越久倍率越高。</p></div>
-      <div class="mode"><span class="tag extraction">搜打撤</span><h3>Extraction</h3><p>搜索容器、拾取物资、到达绿圈撤离，风险与收益并存。</p></div>
-      <div class="mode td"><span class="tag td">塔防</span><h3>Tower Defense</h3><p>明日方舟式 3D 塔防：部署干员、开技能、守住 10 个关卡。</p></div>
+    <h2 class="section-title">两款产品，一个生态</h2>
+    <p class="section-sub">游戏本体负责玩法，启动器负责安装与更新。两者独立发布，也可配合使用。</p>
+    <div class="product-grid">
+
+      <article class="product">
+        <div class="product-head">
+          <span class="product-badge">游戏</span>
+          <h3>SnakeGame</h3>
+          <p class="product-ver">v9.1.0 beta</p>
+        </div>
+        <p class="product-desc">五模式贪吃蛇与 3D 塔防。自绘界面、多语言、键鼠与触屏双操作，支持 Windows x64/x86、Android 与 WebGL。</p>
+        <ul class="check-list">
+          <li>经典 / 淘汰之王 / 4v4 / 极限 / 搜打撤 / 塔防</li>
+          <li>设置页可调分辨率、帧率、主题与配色</li>
+          <li>成就、统计与本地排行榜</li>
+        </ul>
+        <div class="product-actions">
+          <a class="btn primary small" href="#download">下载游戏</a>
+          <a class="btn ghost small" href="#play">在线试玩</a>
+        </div>
+        <a class="repo-link" href="https://github.com/MEIMAOA/SnakeGame" target="_blank" rel="noopener">github.com/MEIMAOA/SnakeGame</a>
+      </article>
+
+      <article class="product">
+        <div class="product-head">
+          <span class="product-badge alt">启动器</span>
+          <h3>SnakeLauncherWPF</h3>
+          <p class="product-ver">v6.0.0.1</p>
+        </div>
+        <p class="product-desc">基于 .NET 10 与 WPF 的现代化启动器，鹰角风格界面、Win11 亚克力效果，一键安装游戏并自动检查更新。</p>
+        <ul class="check-list">
+          <li>从 GitHub Releases 同步游戏版本</li>
+          <li>一键安装、校验与自动更新</li>
+          <li>自定义背景、游戏状态同步（IPC）</li>
+        </ul>
+        <div class="product-actions">
+          <a class="btn primary small" href="https://github.com/MEIMAOA/SnakeLauncherWPF/releases/tag/v6.0.0.1" target="_blank" rel="noopener">下载启动器</a>
+          <a class="btn ghost small" href="https://github.com/MEIMAOA/SnakeLauncherWPF" target="_blank" rel="noopener">查看仓库</a>
+        </div>
+        <a class="repo-link" href="https://github.com/MEIMAOA/SnakeLauncherWPF" target="_blank" rel="noopener">github.com/MEIMAOA/SnakeLauncherWPF</a>
+      </article>
+
     </div>
   </div>
 </section>
 
-<section id="shots" class="section">
+<section class="section gray" id="features">
   <div class="wrap">
-    <h2>游戏截图</h2>
-    <div class="gallery">
-      <figure class="big"><img src="assets/01-start.png" alt="开始界面" loading="lazy"><figcaption>开始界面 · v9.1.0</figcaption></figure>
-      <figure><img src="assets/02-mode-select.png" alt="模式选择" loading="lazy"><figcaption>模式选择</figcaption></figure>
-      <figure><img src="assets/03-settings.png" alt="设置界面" loading="lazy"><figcaption>设置（多语言 / 画面 / 实验性）</figcaption></figure>
-      <figure><img src="assets/04-achievements.png" alt="成就界面" loading="lazy"><figcaption>成就系统</figcaption></figure>
+    <h2 class="section-title">为长时间游玩而设计</h2>
+    <p class="section-sub">自绘渲染、完整设置、多语言与跨平台输入，细节都已处理。</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="feature-num">01</span>
+        <h3>六种玩法</h3>
+        <p>五种贪吃蛇模式加一个独立 3D 塔防模式，每种都有独立规则、进度与结算。</p>
+      </div>
+      <div class="feature">
+        <span class="feature-num">02</span>
+        <h3>明日方舟式塔防</h3>
+        <p>干员部署、阻挡、技能、费用与十张关卡，3D 视角下作战。</p>
+      </div>
+      <div class="feature">
+        <span class="feature-num">03</span>
+        <h3>多语言界面</h3>
+        <p>简体中文、English、Deutsch 全量翻译，切换即时生效并保存。</p>
+      </div>
+      <div class="feature">
+        <span class="feature-num">04</span>
+        <h3>桌面与触屏</h3>
+        <p>Windows 键鼠操作；Android 提供虚拟摇杆、加速键、动作键与暂停键。</p>
+      </div>
+      <div class="feature">
+        <span class="feature-num">05</span>
+        <h3>可调画面</h3>
+        <p>分辨率、显示模式、帧率上限、抗锯齿、垂直同步，以及背景样式与配色。</p>
+      </div>
+      <div class="feature">
+        <span class="feature-num">06</span>
+        <h3>本地数据</h3>
+        <p>成就、累计击杀、胜场、最长存活与排行榜，全部保存在本机。</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="play" class="section">
+<section class="section" id="modes">
   <div class="wrap">
-    <h2>在线试玩 · 完整游戏（WebGL）</h2>
-    <p class="sub">这是由 Unity/Tuanjie 直接构建的 <b>真实游戏 WebGL 版本</b>（与 Windows / Android 版本同一套代码），加载约 18 MB。<br>首次进入可能需要十几秒；建议桌面浏览器 + 键盘鼠标操作。</p>
-    <div class="webgl-frame">
+    <h2 class="section-title">六种模式</h2>
+    <div class="mode-table">
+      <div class="mode-row"><span class="mode-idx">1</span><h3>经典模式</h3><p>吃食物变长，达到 3000 分且不撞墙、不撞自己。</p></div>
+      <div class="mode-row"><span class="mode-idx">2</span><h3>淘汰之王</h3><p>49 条 AI 蛇同场，按 F 挑战附近对手决斗。</p></div>
+      <div class="mode-row"><span class="mode-idx">3</span><h3>占领模式 4v4</h3><p>与蓝队 AI 协作，占领并守住中央区域。</p></div>
+      <div class="mode-row"><span class="mode-idx">4</span><h3>极限模式</h3><p>20 个敌人，存活三分钟，倍率随时间增长。</p></div>
+      <div class="mode-row"><span class="mode-idx">5</span><h3>搜打撤</h3><p>搜索容器、收集物资，到达绿色撤离点完成撤离。</p></div>
+      <div class="mode-row"><span class="mode-idx">6</span><h3>塔防 3D</h3><p>明日方舟式部署与技能，守住十张关卡的敌人进攻。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section gray" id="screens">
+  <div class="wrap">
+    <h2 class="section-title">界面一览</h2>
+    <div class="shot-grid">
+      <figure class="shot big"><img src="assets/01-start.png" alt="开始界面" loading="lazy"><figcaption>开始界面</figcaption></figure>
+      <figure class="shot"><img src="assets/02-mode-select.png" alt="模式选择" loading="lazy"><figcaption>模式选择：六张卡片</figcaption></figure>
+      <figure class="shot"><img src="assets/03-settings.png" alt="设置界面" loading="lazy"><figcaption>设置：画面 / 语言 / 实验性</figcaption></figure>
+      <figure class="shot"><img src="assets/04-achievements.png" alt="成就界面" loading="lazy"><figcaption>成就系统</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="play">
+  <div class="wrap">
+    <h2 class="section-title">在浏览器里直接玩</h2>
+    <p class="section-sub">下面是真实游戏的 WebGL 版本，与桌面版来自同一套代码。首次加载约 15 到 20 秒（数据约 18 MB），建议使用桌面浏览器。</p>
+    <div class="play-frame">
       <iframe src="play/index.html" title="SnakeGame WebGL 在线试玩" allow="autoplay; fullscreen; gamepad" loading="lazy"></iframe>
     </div>
-    <div style="text-align:center;margin-top:14px">
-      <a class="btn primary" href="play/index.html" target="_blank" rel="noopener">在新窗口打开 WebGL 版</a>
-    </div>
-    <p class="note">WebGL 版为真实引擎构建（与 Windows / Android 同一套代码），首次加载约 15–20 秒；加载完成后即可直接游玩。</p>
-  </div>
-</section>
-
-<section id="download" class="section">
-  <div class="wrap">
-    <h2>下载 v9.1.0-beta</h2>
-    <p class="sub">预发布版本，功能完整但仍在回归中。全部产物来自 GitHub Releases。</p>
-    <div class="downloads">
-      <a class="dl" href="https://github.com/MEIMAOA/SnakeGame/releases/download/v9.1.0-beta/SnakeGame-9.1.0-beta-Windows64.zip">
-        <div class="os">Windows</div><h3>64 位</h3><p>SnakeGame-9.1.0-beta-Windows64.zip</p><span class="size">33.3 MB</span><span class="go">下载 →</span>
-      </a>
-      <a class="dl" href="https://github.com/MEIMAOA/SnakeGame/releases/download/v9.1.0-beta/SnakeGame-9.1.0-beta-Windows32.zip">
-        <div class="os">Windows</div><h3>32 位</h3><p>SnakeGame-9.1.0-beta-Windows32.zip</p><span class="size">27.7 MB</span><span class="go">下载 →</span>
-      </a>
-      <a class="dl" href="https://github.com/MEIMAOA/SnakeGame/releases/download/v9.1.0-beta/SnakeGame-9.1.0-beta-Android.apk">
-        <div class="os">Android</div><h3>arm64 / 8.0+</h3><p>SnakeGame-9.1.0-beta-Android.apk</p><span class="size">40.0 MB</span><span class="go">下载 →</span>
-      </a>
-    </div>
-    <p class="note">Windows 版本解压后运行 <code>SnakeGame.exe</code>；Android 安装 APK 后横屏游玩。全部版本来自同一代码库构建。</p>
-  </div>
-</section>
-
-<section class="section alt">
-  <div class="wrap">
-    <h2>技术栈</h2>
-    <div class="chips">
-      <span>C# / .NET</span><span>Unity / Tuanjie 2022.3</span><span>IMGUI 自绘 UI</span><span>Windows Standalone（x64 / x86）</span><span>Android（ARM64 / IL2CPP）</span><span>GitHub Actions</span>
+    <div class="play-actions">
+      <a class="btn primary" href="play/index.html" target="_blank" rel="noopener">在新窗口打开</a>
+      <span class="muted">手机端建议直接下载 Android APK，触屏体验更完整。</span>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section gray" id="download">
   <div class="wrap">
-    <h2>开源引用与致谢</h2>
-    <div class="credits">
-      <div class="card">
-        <h3>Saukiya/Arknights</h3>
-        <p>「实验性功能 → 改进塔防模式」引用的明日方舟式塔防开源原型。<br>
-        作者：<b>Saukiya</b> · <a href="https://github.com/Saukiya/Arknights" target="_blank" rel="noopener">github.com/Saukiya/Arknights</a></p>
-        <p class="small">该仓库为 Unity 脚本原型（不含场景与美术资源），且未声明开源许可证，版权归原作者所有；本项目仅作源码引用与学习用途，源码随包内置但不参与编译。</p>
+    <h2 class="section-title">下载</h2>
+    <p class="section-sub">游戏与启动器均提供 Windows 安装包；游戏另有 Android 与 WebGL 版本。</p>
+
+    <h3 class="group-title">SnakeGame 9.1.0 beta</h3>
+    <div class="download-grid four">
+      <a class="dl-card" href="https://github.com/MEIMAOA/SnakeGame/releases/download/v9.1.0-beta/SnakeGame-9.1.0-beta-Windows64.zip">
+        <span class="dl-os">Windows</span><b>x64</b><span class="dl-file">SnakeGame-9.1.0-beta-Windows64.zip</span><span class="dl-size">40.2 MB</span>
+      </a>
+      <a class="dl-card" href="https://github.com/MEIMAOA/SnakeGame/releases/download/v9.1.0-beta/SnakeGame-9.1.0-beta-Windows32.zip">
+        <span class="dl-os">Windows</span><b>x86</b><span class="dl-file">SnakeGame-9.1.0-beta-Windows32.zip</span><span class="dl-size">34.6 MB</span>
+      </a>
+      <a class="dl-card" href="https://github.com/MEIMAOA/SnakeGame/releases/download/v9.1.0-beta/SnakeGame-9.1.0-beta-Android.apk">
+        <span class="dl-os">Android</span><b>arm64</b><span class="dl-file">SnakeGame-9.1.0-beta-Android.apk</span><span class="dl-size">46.8 MB</span>
+      </a>
+      <a class="dl-card" href="https://github.com/MEIMAOA/SnakeGame/releases/download/v9.1.0-beta/SnakeGame-9.1.0-beta-WebGL.zip">
+        <span class="dl-os">WebGL</span><b>Web</b><span class="dl-file">SnakeGame-9.1.0-beta-WebGL.zip</span><span class="dl-size">14.7 MB</span>
+      </a>
+    </div>
+    <p class="muted">Windows 版本解压后运行 <code>SnakeGame.exe</code>；Android 安装 APK 后横屏游玩；WebGL 包可部署到任意静态服务器。</p>
+
+    <h3 class="group-title">SnakeLauncherWPF 6.0.0.1</h3>
+    <div class="download-grid three">
+      <a class="dl-card" href="https://github.com/MEIMAOA/SnakeLauncherWPF/releases/download/v6.0.0.1/SnakeLauncherWPF_6.0.0.1-Windows64.zip">
+        <span class="dl-os">启动器</span><b>Windows x64</b><span class="dl-file">SnakeLauncherWPF_6.0.0.1-Windows64.zip</span><span class="dl-size">0.5 MB</span>
+      </a>
+      <a class="dl-card" href="https://github.com/MEIMAOA/SnakeLauncherWPF/releases/download/v6.0.0.1/SnakeLauncherWPF_6.0.0.1-Windows32.zip">
+        <span class="dl-os">启动器</span><b>Windows x86</b><span class="dl-file">SnakeLauncherWPF_6.0.0.1-Windows32.zip</span><span class="dl-size">0.5 MB</span>
+      </a>
+      <a class="dl-card" href="https://github.com/MEIMAOA/SnakeLauncherWPF/releases/download/v6.0.0.1/SnakeLauncherWPF_6.0.0.1-WindowsARM64.zip">
+        <span class="dl-os">启动器</span><b>Windows ARM64</b><span class="dl-file">SnakeLauncherWPF_6.0.0.1-WindowsARM64.zip</span><span class="dl-size">0.5 MB</span>
+      </a>
+    </div>
+    <p class="muted">启动器需要 .NET 10 桌面运行时；安装游戏后启动器会自动检查更新。</p>
+  </div>
+</section>
+
+<section class="section" id="requirements">
+  <div class="wrap">
+    <h2 class="section-title">系统要求</h2>
+    <div class="req-grid">
+      <div class="req">
+        <h3>SnakeGame · Windows</h3>
+        <ul>
+          <li>Windows 10 版本 1809 或更高 / Windows 11</li>
+          <li>64 位或 32 位处理器，支持 SSE2</li>
+          <li>显卡支持 DirectX 11</li>
+          <li>约 200 MB 可用磁盘空间</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>本项目</h3>
-        <p>SnakeGame 代码与自制美术：<b>MEIMAOA</b><br>
-        <a href="https://github.com/MEIMAOA/SnakeGame" target="_blank" rel="noopener">github.com/MEIMAOA/SnakeGame</a></p>
-        <p class="small">本页面为静态宣传页，网页试玩为独立实现的轻量复刻。</p>
+      <div class="req">
+        <h3>SnakeGame · Android</h3>
+        <ul>
+          <li>Android 8.0（API 26）或更高</li>
+          <li>arm64-v8a 设备</li>
+          <li>约 120 MB 可用存储空间</li>
+          <li>横屏游玩，支持触屏操作</li>
+        </ul>
+      </div>
+      <div class="req">
+        <h3>SnakeLauncherWPF</h3>
+        <ul>
+          <li>Windows 10 / 11（x64、x86 或 ARM64）</li>
+          <li>.NET 10 桌面运行时</li>
+          <li>可访问 GitHub 的网络（用于检查与下载版本）</li>
+          <li>约 50 MB 可用磁盘空间</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-</main>
+<section class="section gray">
+  <div class="wrap narrow">
+    <h2 class="section-title">开源与致谢</h2>
+    <p><b>Saukiya/Arknights</b>（作者 Saukiya，<a href="https://github.com/Saukiya/Arknights" target="_blank" rel="noopener">github.com/Saukiya/Arknights</a>）为实验性「改进塔防模式」引用的塔防原型。该仓库为不含场景与美术资源的 Unity 脚本原型，且未声明开源许可证，版权归原作者所有；源码随项目以只读形式保存，不参与游戏编译。</p>
+    <p><b>Noto Sans SC</b>（Google）用于 WebGL 端中文字体渲染，采用 SIL Open Font License 1.1。</p>
+    <p>SnakeGame 与 SnakeLauncherWPF 使用 MIT 许可证。</p>
+  </div>
+</section>
 
-<footer>
-  <div class="wrap">
-    <p>© 2026 MEIMAOA · SnakeGame v9.1.0-beta</p>
-    <p class="small">
-      <a href="https://github.com/MEIMAOA/SnakeGame" target="_blank" rel="noopener">源码仓库</a> ·
-      <a href="https://github.com/MEIMAOA/SnakeGame/releases" target="_blank" rel="noopener">全部版本</a> ·
-      <a href="https://github.com/MEIMAOA" target="_blank" rel="noopener">作者主页</a>
-    </p>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-title">SnakeGame</p>
+      <p class="muted">五种贪吃蛇模式与明日方舟式塔防。</p>
+    </div>
+    <div>
+      <p class="footer-title">产品</p>
+      <a href="https://github.com/MEIMAOA/SnakeGame" target="_blank" rel="noopener">游戏仓库</a>
+      <a href="https://github.com/MEIMAOA/SnakeLauncherWPF" target="_blank" rel="noopener">启动器仓库</a>
+      <a href="https://github.com/MEIMAOA/SnakeGame/releases" target="_blank" rel="noopener">全部版本</a>
+    </div>
+    <div>
+      <p class="footer-title">资源</p>
+      <a href="#play">在线试玩</a>
+      <a href="#download">下载</a>
+      <a href="#requirements">系统要求</a>
+    </div>
+    <div>
+      <p class="footer-title">作者</p>
+      <a href="https://github.com/MEIMAOA" target="_blank" rel="noopener">MEIMAOA</a>
+      <a href="https://github.com/MEIMAOA/SnakeGame/blob/main/LICENSE" target="_blank" rel="noopener">MIT 许可证</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 MEIMAOA · SnakeGame 9.1.0 beta</span>
+    <span>本页面为静态介绍页，游戏截图来自实际运行版本。</span>
   </div>
 </footer>
-
 
 </body>
 </html>
